@@ -1078,14 +1078,19 @@ This project is a Rust port of the original [CodeGraph](https://github.com/colby
 ## Building
 
 ```bash
-cargo build --release                          # full (50+ languages, default)
-cargo build --release --features medium        # medium tier
-cargo build --release --no-default-features    # lite (smallest binary)
-
-cargo test                                     # run all tests (requires full)
-cargo check --no-default-features              # verify lite compiles
-cargo clippy --all
+just build       # debug development build
+just test        # locked workspace tests
+just release     # optimized release build
+just install     # optimized locked install into ~/.local
+just reclaim     # remove disposable intermediates, keep release output
+just clean       # remove generated Cargo output
 ```
+
+Development commands use the debug profile; installation uses only the optimized
+release output. `target/debug` is never an installation input. Use `just
+install` for the supported local installation workflow, `just reclaim` to
+remove disposable intermediates while keeping release output, and `just clean`
+to remove generated Cargo output.
 
 ## Star History
 

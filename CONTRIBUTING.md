@@ -7,11 +7,27 @@ Thanks for your interest in contributing! This guide covers everything you need 
 ```bash
 git clone https://github.com/aovestdipaperino/tokensave.git
 cd tokensave
-cargo build
-cargo test
+just build
+just test
 ```
 
-Requires **Rust 1.70+** (edition 2021).
+Requires **Rust 1.98.1** (edition 2021).
+
+## Build and Artifact Lifecycle
+
+Use the justfile recipes for the supported local workflow:
+
+```bash
+just build       # debug development build
+just test        # locked workspace tests
+just release     # optimized release build
+just install     # optimized locked install into ~/.local
+just reclaim     # remove disposable intermediates, keep release output
+just clean       # remove generated Cargo output
+```
+
+Development commands use the debug profile; installation uses only the
+optimized release output. `target/debug` is never an installation input.
 
 ## Project Structure
 
