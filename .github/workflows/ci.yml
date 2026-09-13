@@ -78,6 +78,8 @@ jobs:
   msrv:
     name: MSRV
     runs-on: ubuntu-latest
+    env:
+      RUSTUP_TOOLCHAIN: "1.95.0"
     steps:
       - uses: actions/checkout@v5
       - uses: dtolnay/rust-toolchain@1.95.0
